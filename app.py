@@ -78,13 +78,13 @@ st.markdown("""
 # --------------------------------------------------
 products = [
     {
-        "name": "🎧 Wireless Headphones",,
+        "name": "Wireless Headphones",,
         "price": 2999,
         "description": "Premium noise-cancelling headphones with 40-hour battery life.",
         "category": "Electronics"
     },
     {
-        "name": "⌚ Smart Watch",
+        "name": "Smart Watch",
         "price": 4999,
         "description": "Track fitness, notifications, and health metrics in real-time.",
         "category": "Electronics"
@@ -200,7 +200,7 @@ cols = st.columns(3)
 for index, product in enumerate(filtered_products):
     with cols[index % 3]:
         st.markdown(f"""
-        <div class="product-card">
+        <div class="">
             <div class="category">{product['category']}</div>
             <div class="product-name">{product['name']}</div>
             <br>
