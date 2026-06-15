@@ -152,16 +152,33 @@ st.write(
     fashion items, accessories, and home essentials.
     """
 )
+c1, c2, c3, c4 = st.columns(4)
+
+c1.metric("🛍 Products", "6")
+c2.metric("📂 Categories", "4")
+c3.metric("👥 Customers", "5K+")
+c4.metric("⭐ Rating", "4.9")
+
+st.success("🔥 FLASH SALE: Up to 40% OFF on Electronics Today!")
 
 # --------------------------------------------------
 # Filter Products
 # --------------------------------------------------
+search = st.text_input(
+    "🔍 Search Products",
+    placeholder="Search products..."
+)
 if selected_category == "All":
     filtered_products = products
 else:
     filtered_products = [
         product for product in products
         if product["category"] == selected_category
+    ]
+    if search:
+    filtered_products = [
+        p for p in filtered_products
+        if search.lower() in p["name"].lower()
     ]
 
 # --------------------------------------------------
