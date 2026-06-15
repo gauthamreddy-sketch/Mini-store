@@ -198,6 +198,26 @@ st.page_link(
     label="💬 Open Support Chatbot",
     icon="💬"
 )
+st.markdown("""
+<style>
+.support-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #7C3AED;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 9999;
+}
+</style>
+
+<a href="/Support_Chatbot" target="_self" class="support-btn">
+💬 Support
+</a>
+""", unsafe_allow_html=True)
 # --------------------------------------------------
 # FOOTER
 # --------------------------------------------------
