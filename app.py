@@ -90,25 +90,25 @@ products = [
         "category": "Electronics"
     },
     {
-        "name": "👟 Running Shoes",
+        "name": "Running Shoes",
         "price": 3499,
         "description": "Comfortable lightweight shoes designed for daily running.",
         "category": "Fashion"
     },
     {
-        "name": "🎒 Backpack",
+        "name": "Backpack",
         "price": 1499,
         "description": "Durable backpack with multiple compartments for work and travel.",
         "category": "Accessories"
     },
     {
-        "name": "☕ Coffee Maker",
+        "name": "Coffee Maker",
         "price": 2599,
         "description": "Brew fresh coffee at home with one-touch operation.",
         "category": "Home"
     },
     {
-        "name": "🔊 Bluetooth Speaker",
+        "name": "Bluetooth Speaker",
         "price": 1999,
         "description": "Portable speaker with rich sound and waterproof design.",
         "category": "Electronics"
