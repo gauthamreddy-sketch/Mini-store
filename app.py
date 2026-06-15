@@ -78,7 +78,7 @@ st.markdown("""
 # --------------------------------------------------
 products = [
     {
-        "name": "Wireless Headphones",,
+        "name": "Wireless Headphones",  
         "price": 2999,
         "description": "Premium noise-cancelling headphones with 40-hour battery life.",
         "category": "Electronics"
