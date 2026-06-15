@@ -1,199 +1,171 @@
 import streamlit as st
 
-# --------------------------------------------------
-# Page Configuration
-# --------------------------------------------------
 st.set_page_config(
     page_title="MiniStore",
-    page_icon="🛒",
+    page_icon="🛍️",
     layout="wide"
 )
 
 # --------------------------------------------------
-# Custom CSS Styling
+# CSS
 # --------------------------------------------------
+
 st.markdown("""
 <style>
+
 .main {
-    background-color: #f5f7fa;
+    background-color: #f8fafc;
 }
 
 .hero {
-    background: linear-gradient(90deg, #4F46E5, #7C3AED);
-    padding: 30px;
-    border-radius: 15px;
-    color: white;
+    background: linear-gradient(135deg,#6366f1,#8b5cf6);
+    padding: 40px;
+    border-radius: 20px;
     text-align: center;
-    margin-bottom: 20px;
+    color: white;
+    margin-bottom: 30px;
+    box-shadow: 0px 10px 30px rgba(99,102,241,0.3);
 }
 
 .product-card {
-    background-color: white;
+    background: white;
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    border-radius: 18px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
     margin-bottom: 20px;
-    height: 280px;
-}
-.product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0px 20px 35px rgba(139,92,246,0.3);
     transition: all 0.3s ease;
+    min-height: 260px;
 }
 
-.product-card p {
-    color: #4b5563;
-    font-size: 15px;
-    line-height: 1.5;
-}
-.product-card p {
-    color: #4b5563;
-    font-size: 15px;
-    line-height: 1.5;
-}
 .product-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0px 20px 35px rgba(139,92,246,0.3);
-}x  
+    box-shadow: 0px 15px 35px rgba(139,92,246,0.3);
+}
+
 .product-name {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
-    color: #333;
+    color: #111827;
 }
 
 .price {
     color: #16a34a;
-    font-size: 22px;
+    font-size: 26px;
     font-weight: bold;
 }
 
 .category {
-    background-color: #e0e7ff;
-    padding: 4px 10px;
-    border-radius: 10px;
     display: inline-block;
-    margin-bottom: 10px;
-    color: #4338ca;
+    background: linear-gradient(90deg,#6366f1,#8b5cf6);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    font-size: 13px;
+}
+
+.product-card p {
+    color: #4b5563;
 }
 
 .footer {
     text-align: center;
+    margin-top: 40px;
     color: gray;
-    margin-top: 30px;
 }
+
 </style>
 """, unsafe_allow_html=True)
 
 # --------------------------------------------------
-# Sample Product Data
+# PRODUCTS
 # --------------------------------------------------
+
 products = [
-    {
-        "name": "Wireless Headphones",  
-        "price": 2999,
-        "description": "Premium noise-cancelling headphones with 40-hour battery life.",
-        "category": "Electronics"
-    },
-    {
-        "name": "Smart Watch",
-        "price": 4999,
-        "description": "Track fitness, notifications, and health metrics in real-time.",
-        "category": "Electronics"
-    },
-    {
-        "name": "Running Shoes",
-        "price": 3499,
-        "description": "Comfortable lightweight shoes designed for daily running.",
-        "category": "Fashion"
-    },
-    {
-        "name": "Backpack",
-        "price": 1499,
-        "description": "Durable backpack with multiple compartments for work and travel.",
-        "category": "Accessories"
-    },
-    {
-        "name": "Coffee Maker",
-        "price": 2599,
-        "description": "Brew fresh coffee at home with one-touch operation.",
-        "category": "Home"
-    },
-    {
-        "name": "Bluetooth Speaker",
-        "price": 1999,
-        "description": "Portable speaker with rich sound and waterproof design.",
-        "category": "Electronics"
-    }
+    {"name":"🎧 Wireless Headphones","price":2999,"category":"Electronics","description":"Premium noise-cancelling headphones with 40-hour battery life."},
+    {"name":"⌚ Smart Watch","price":4999,"category":"Electronics","description":"Track fitness, notifications and health metrics."},
+    {"name":"👟 Running Shoes","price":3499,"category":"Fashion","description":"Comfortable lightweight shoes for everyday running."},
+    {"name":"🎒 Backpack","price":1499,"category":"Accessories","description":"Durable backpack with multiple compartments."},
+    {"name":"☕ Coffee Maker","price":2599,"category":"Home","description":"Brew fresh coffee with one-touch operation."},
+    {"name":"🔊 Bluetooth Speaker","price":1999,"category":"Electronics","description":"Portable speaker with rich sound and waterproof design."}
 ]
 
 # --------------------------------------------------
-# Sidebar
+# SIDEBAR
 # --------------------------------------------------
+
 st.sidebar.title("🛍️ MiniStore")
 
-categories = ["All"] + sorted(
-    list(set(product["category"] for product in products))
-)
+categories = ["All"] + sorted(list(set([p["category"] for p in products])))
 
 selected_category = st.sidebar.selectbox(
     "Choose Category",
     categories
 )
 
-# Shopping Cart Summary
 st.sidebar.markdown("---")
+
 st.sidebar.subheader("🛒 Shopping Cart")
-
-cart_items = 3
-cart_total = 8497
-
-st.sidebar.write(f"Items: {cart_items}")
-st.sidebar.write(f"Total: ₹{cart_total:,}")
+st.sidebar.write("Items: 3")
+st.sidebar.write("Total: ₹8,497")
 
 # --------------------------------------------------
-# Homepage Hero Section
+# HERO
 # --------------------------------------------------
+
 st.markdown("""
 <div class="hero">
-    <h1>🛒 Welcome to MiniStore</h1>
-    <p>Your one-stop destination for quality products at affordable prices.</p>
+<h1>🛒 Welcome to MiniStore</h1>
+<p>Your one-stop destination for quality products at affordable prices.</p>
 </div>
 """, unsafe_allow_html=True)
 
+st.info("🚚 Free Delivery Above ₹2,999 | 🔒 Secure Checkout | ⭐ Rated 4.9/5")
+
 # --------------------------------------------------
-# Welcome Section
+# TITLE
 # --------------------------------------------------
-st.header("Discover Amazing Products")
+
+st.title("✨ Discover Amazing Products")
 
 st.write(
-    """
-    Browse our carefully selected collection of electronics,
-    fashion items, accessories, and home essentials.
-    """
+    "Browse our collection of electronics, fashion, accessories and home essentials."
 )
-c1, c2, c3, c4 = st.columns(4)
 
-c1.metric("🛍 Products", "6")
-c2.metric("📂 Categories", "4")
-c3.metric("👥 Customers", "5K+")
-c4.metric("⭐ Rating", "4.9")
+# --------------------------------------------------
+# METRICS
+# --------------------------------------------------
+
+c1,c2,c3,c4 = st.columns(4)
+
+c1.metric("🛍 Products","6")
+c2.metric("📂 Categories","4")
+c3.metric("👥 Customers","5K+")
+c4.metric("⭐ Rating","4.9")
 
 st.success("🔥 FLASH SALE: Up to 40% OFF on Electronics Today!")
 
 # --------------------------------------------------
-# Filter Products
+# SEARCH
 # --------------------------------------------------
+
 search = st.text_input(
     "🔍 Search Products",
     placeholder="Search products..."
 )
+
+# --------------------------------------------------
+# FILTER
+# --------------------------------------------------
+
 if selected_category == "All":
     filtered_products = products
 else:
-        filtered_products = [
-        product for product in products
-        if product["category"] == selected_category
+    filtered_products = [
+        p for p in products
+        if p["category"] == selected_category
     ]
+
 if search:
     filtered_products = [
         p for p in filtered_products
@@ -201,17 +173,19 @@ if search:
     ]
 
 # --------------------------------------------------
-# Featured Products Section
+# PRODUCTS
 # --------------------------------------------------
+
 st.subheader("⭐ Featured Products")
 
-# Create responsive layout with columns
 cols = st.columns(3)
 
 for index, product in enumerate(filtered_products):
+
     with cols[index % 3]:
+
         st.markdown(f"""
-        <div class="">
+        <div class="product-card">
             <div class="category">{product['category']}</div>
             <div class="product-name">{product['name']}</div>
             <br>
@@ -221,11 +195,13 @@ for index, product in enumerate(filtered_products):
         """, unsafe_allow_html=True)
 
 # --------------------------------------------------
-# Footer
+# FOOTER
 # --------------------------------------------------
+
 st.markdown("""
 <div class="footer">
-    <hr>
-    <p>© 2026 MiniStore | Demo E-Commerce Website Built with Streamlit</p>
+<hr>
+<p>🛍 MiniStore • Quality Products • Fast Delivery • Secure Shopping</p>
+<p>© 2026 MiniStore</p>
 </div>
 """, unsafe_allow_html=True)
