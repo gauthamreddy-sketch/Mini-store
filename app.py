@@ -171,11 +171,11 @@ search = st.text_input(
 if selected_category == "All":
     filtered_products = products
 else:
-    filtered_products = [
+        filtered_products = [
         product for product in products
         if product["category"] == selected_category
     ]
-    if search:
+if search:
     filtered_products = [
         p for p in filtered_products
         if search.lower() in p["name"].lower()
