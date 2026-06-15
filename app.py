@@ -35,7 +35,15 @@ st.markdown("""
     margin-bottom: 20px;
     height: 280px;
 }
-
+.product-card p {
+    color: #4b5563;
+    font-size: 15px;
+    line-height: 1.5;
+}
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 20px 35px rgba(139,92,246,0.3);
+}x  
 .product-name {
     font-size: 20px;
     font-weight: bold;
@@ -70,37 +78,37 @@ st.markdown("""
 # --------------------------------------------------
 products = [
     {
-        "name": "Wireless Headphones",
+        "name": "🎧 Wireless Headphones",,
         "price": 2999,
         "description": "Premium noise-cancelling headphones with 40-hour battery life.",
         "category": "Electronics"
     },
     {
-        "name": "Smart Watch",
+        "name": "⌚ Smart Watch",
         "price": 4999,
         "description": "Track fitness, notifications, and health metrics in real-time.",
         "category": "Electronics"
     },
     {
-        "name": "Running Shoes",
+        "name": "👟 Running Shoes",
         "price": 3499,
         "description": "Comfortable lightweight shoes designed for daily running.",
         "category": "Fashion"
     },
     {
-        "name": "Backpack",
+        "name": "🎒 Backpack",
         "price": 1499,
         "description": "Durable backpack with multiple compartments for work and travel.",
         "category": "Accessories"
     },
     {
-        "name": "Coffee Maker",
+        "name": "☕ Coffee Maker",
         "price": 2599,
         "description": "Brew fresh coffee at home with one-touch operation.",
         "category": "Home"
     },
     {
-        "name": "Bluetooth Speaker",
+        "name": "🔊 Bluetooth Speaker",
         "price": 1999,
         "description": "Portable speaker with rich sound and waterproof design.",
         "category": "Electronics"
