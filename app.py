@@ -35,6 +35,17 @@ st.markdown("""
     margin-bottom: 20px;
     height: 280px;
 }
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 20px 35px rgba(139,92,246,0.3);
+    transition: all 0.3s ease;
+}
+
+.product-card p {
+    color: #4b5563;
+    font-size: 15px;
+    line-height: 1.5;
+}
 .product-card p {
     color: #4b5563;
     font-size: 15px;
