@@ -193,7 +193,11 @@ for index, product in enumerate(filtered_products):
             <p>{product['description']}</p>
         </div>
         """, unsafe_allow_html=True)
-
+st.page_link(
+    "pages/1_Support_Chatbot.py",
+    label="💬 Open Support Chatbot",
+    icon="💬"
+)
 # --------------------------------------------------
 # FOOTER
 # --------------------------------------------------
